@@ -25,4 +25,4 @@ dados = load_data()
 acidentes_serie_historica = pd.pivot_table(dados, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
 
 fig = px.line(acidentes_serie_historica, x="Data do acidente", y="Acidentes", title='Acidentes por animais peçonhentos, BR, 2019 a 2022')
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
