@@ -29,14 +29,12 @@ with urllib.request.urlopen("https://raw.githubusercontent.com/giuliano-macedo/g
 
 # Mapa
 # Criar um objeto de mapa
-mapa = folium.Map(location=[-30.510000000000, -53.8000000000], zoom_start=6)
+mapa = folium.Map(location=[-12.77314489018321, -50.30787352375238], zoom_start=3)
 
 # Criando o pop up
 popup = folium.GeoJsonPopup(
     fields=["Estado"],
     localize=True,
-    
-    
 )
 
 # Adicionando as CRS
@@ -68,7 +66,7 @@ dados = load_data()
 coluna_grafico, coluna_mapa = st.columns(2)
 with coluna_mapa:
     # Exibindo o Mapa
-    st_data = st_folium(mapa, width=500, height=450)
+    st_data = st_folium(mapa, width=600, height=800)
     st.write(st_data)
 
 #Filtrando de acordo com o mapa
