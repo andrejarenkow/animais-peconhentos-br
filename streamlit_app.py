@@ -72,9 +72,14 @@ with coluna_mapa:
     st.write(st_data)
 
 #Filtrando de acordo com o mapa
-estado_filtro = st_data['last_active_drawing']['properties']['SIGLA']
+try:
+    estado_filtro = st_data['last_active_drawing']['properties']['SIGLA'] #last active drawing vai direto para o ultimo clicado
 
-dados_filtrado = dados[dados['UF do acidente']==estado_filtro]
+    dados_filtrado = dados[dados['UF do acidente']==estado_filtro]
+except:
+    estado_filtro = 'BR'
+    dados_filtrado = dados
+    
 acidentes_serie_historica = pd.pivot_table(dados_filtrado, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
 
 fig = px.line(acidentes_serie_historica, x="Data do acidente", y="Acidentes", title=f'Acidentes por animais peçonhentos, {estado_filtro}, 2019 a 2022')
