@@ -1,5 +1,8 @@
-streamlit
 pandas
-plotly.express
+geopandas
+requests
+plotly
+streamlit
 streamlit-folium
 folium
+geojson
