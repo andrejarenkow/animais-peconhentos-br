@@ -35,7 +35,7 @@ mapa = folium.Map(location=[-30.510000000000, -53.8000000000], zoom_start=6)
 popup = folium.GeoJsonPopup(
     fields=["Estado"],
     localize=True,
-    labels=True,
+    
     
 )
 
