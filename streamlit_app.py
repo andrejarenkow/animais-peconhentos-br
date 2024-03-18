@@ -11,7 +11,11 @@ def load_data(persist=True):
     return data
 
 
-dados = pd.read_parquet('https://drive.google.com/uc?export=download&id=1-79XeKun6Eqnxl6C_km5BgIG-XF2gW8h')
+dados = load_data()
+
+acidentes_serie_historica = pd.pivot_table(dados, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
+
+st.line_chart(acidentes_serie_historica, x='Data do acidente', y='Acidentes')
 
 
 
