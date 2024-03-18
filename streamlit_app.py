@@ -38,6 +38,13 @@ folium.GeoJson(brasil_states,
                 "color": "grey",
                 "weight": 0.8,
                'fillOpacity':0},
+               highlight_function=lambda feature: {
+                "fillColor": 'red',
+                "color": "black",
+                "weight": 3,
+               'fillOpacity':0.6
+                },
+               popup_keep_highlighted=True,
                ).add_to(mapa)
 
 # Importação de dados
