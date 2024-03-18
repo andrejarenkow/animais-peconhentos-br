@@ -3,7 +3,21 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
+# Configurando a página
 
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
+
+# Importação de dados
 @st.cache_data
 def load_data(persist=True):
   # Importando os dados que estao em parquet
