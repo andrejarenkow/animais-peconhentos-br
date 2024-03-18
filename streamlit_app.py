@@ -22,6 +22,9 @@ def load_data(persist=True):
 
 dados = load_data()
 
+#Filtrando de acordo com o mapa
+#filtro = 
+
 acidentes_serie_historica = pd.pivot_table(dados, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
 
 fig = px.line(acidentes_serie_historica, x="Data do acidente", y="Acidentes", title='Acidentes por animais peçonhentos, BR, 2019 a 2022')
