@@ -56,10 +56,12 @@ with coluna_mapa:
     st.write(st_data)
 
 #Filtrando de acordo com o mapa
-#filtro = 
+filtro = st_data['last_active_drawing']['properties']['SIGLA']
+
 
 acidentes_serie_historica = pd.pivot_table(dados, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
 
 fig = px.line(acidentes_serie_historica, x="Data do acidente", y="Acidentes", title='Acidentes por animais peçonhentos, BR, 2019 a 2022')
 with coluna_grafico:
     st.plotly_chart(fig, use_container_width=True)
+    st.write(filtro)
