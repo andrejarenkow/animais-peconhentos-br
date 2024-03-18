@@ -29,7 +29,7 @@ with urllib.request.urlopen("https://raw.githubusercontent.com/giuliano-macedo/g
 
 # Mapa
 # Criar um objeto de mapa
-mapa = folium.Map(location=[-12.77314489018321, -45.30787352375238], zoom_start=4)
+mapa = folium.Map(location=[-12.77314489018321, -55.30787352375238], zoom_start=4)
 
 # Criando o pop up
 popup = folium.GeoJsonPopup(
