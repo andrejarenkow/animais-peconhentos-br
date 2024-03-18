@@ -53,6 +53,7 @@ coluna_grafico, coluna_mapa = st.columns(2)
 with coluna_mapa:
     # Exibindo o Mapa
     st_data = st_folium(mapa, width=500, height=450)
+    st.write(st_data)
 
 #Filtrando de acordo com o mapa
 #filtro = 
