@@ -33,11 +33,10 @@ mapa = folium.Map(location=[-30.510000000000, -53.8000000000], zoom_start=6)
 
 # Criando o pop up
 popup = folium.GeoJsonPopup(
-    fields=["name", "change"],
-    aliases=["State", "% Change"],
+    fields=["Estado"],
     localize=True,
     labels=True,
-    style="background-color: yellow;",
+    
 )
 
 # Adicionando as CRS
