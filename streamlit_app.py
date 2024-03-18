@@ -52,7 +52,8 @@ folium.GeoJson(brasil_states,
                 "weight": 3,
                'fillOpacity':0.6
                 },
-               #popup_keep_highlighted=True,
+               popup=popup,
+               popup_keep_highlighted=True,
                ).add_to(mapa)
 
 # Importação de dados
@@ -71,12 +72,12 @@ with coluna_mapa:
     st.write(st_data)
 
 #Filtrando de acordo com o mapa
-filtro = st_data['last_active_drawing']['properties']['SIGLA']
+estado_filtro = st_data['last_active_drawing']['properties']['SIGLA']
 
+dados_filtrado = dados[dados['UF do acidente']==estado_filtro]
+acidentes_serie_historica = pd.pivot_table(dados_filtrado, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
 
-acidentes_serie_historica = pd.pivot_table(dados, index='Data do acidente', aggfunc='size').reset_index(name='Acidentes')
-
-fig = px.line(acidentes_serie_historica, x="Data do acidente", y="Acidentes", title='Acidentes por animais peçonhentos, BR, 2019 a 2022')
+fig = px.line(acidentes_serie_historica, x="Data do acidente", y="Acidentes", title=f'Acidentes por animais peçonhentos, {estado_filtro}, 2019 a 2022')
 with coluna_grafico:
     st.plotly_chart(fig, use_container_width=True)
-    st.write(filtro)
+
