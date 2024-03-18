@@ -31,6 +31,15 @@ with urllib.request.urlopen("https://raw.githubusercontent.com/giuliano-macedo/g
 # Criar um objeto de mapa
 mapa = folium.Map(location=[-30.510000000000, -53.8000000000], zoom_start=6)
 
+# Criando o pop up
+popup = folium.GeoJsonPopup(
+    fields=["name", "change"],
+    aliases=["State", "% Change"],
+    localize=True,
+    labels=True,
+    style="background-color: yellow;",
+)
+
 # Adicionando as CRS
 folium.GeoJson(brasil_states,
                style_function=lambda feature: {
@@ -44,7 +53,7 @@ folium.GeoJson(brasil_states,
                 "weight": 3,
                'fillOpacity':0.6
                 },
-               popup_keep_highlighted=True,
+               #popup_keep_highlighted=True,
                ).add_to(mapa)
 
 # Importação de dados
